@@ -20,9 +20,20 @@ export class HomePageComponent implements OnInit {
       this.employeeRecords = res;
       this.employees = this.distinctEmployees(res);
       this.sumHoursForEveryEmployee();
+      this.sortEmployees();
     }) ;
   }
-
+  private sortEmployees(){
+      this.employees.sort((a,b)=>{
+        if (a.TotalMonthlyTime > b.TotalMonthlyTime) {
+          return -1;
+        }
+        if (a.TotalMonthlyTime < b.TotalMonthlyTime) {
+          return 1;
+        }
+        return 0;
+      })
+  }
   private distinctEmployees(records : EmployeeRecord[]) : Employee[]{
     let employees : Employee[] = [];
     for(let r of records){
