@@ -1,0 +1,22 @@
+	<section >
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<ng-container *ngFor="let h of ['Name', 'Total hours in month', 'Actions']">
+						<th class="bg-light">{{h}}</th>
+					</ng-container>
+				</tr>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let e of employees">
+					<tr [class]="e.TotalMonthlyTime < 100 ? 'warning' : ''">
+						<td>{{e.EmployeeName}}</td>
+						<td>{{e.TotalMonthlyTime}} hrs</td>
+						<td>
+							<a href="#" class="btn btn-link">Edit</a>
+						</td>
+					</tr>
+				</ng-container>
+			</tbody>
+		</table>
+	</section>

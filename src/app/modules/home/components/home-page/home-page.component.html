@@ -1,0 +1,4 @@
+<section class="container mx-auto  py-4" *ngIf="employees.length > 0">
+	<app-employees-table [employees]="employees"></app-employees-table>
+	<app-pie-chart [employees]="employees"></app-pie-chart>
+</section>
